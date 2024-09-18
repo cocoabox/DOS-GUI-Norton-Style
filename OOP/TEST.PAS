@@ -81,12 +81,12 @@ Procedure OpenFile;
 Var
    OrdChar      :Byte;
 Begin
-    Assign(FileHlp,'C:\bp7\myobj\help\george.hlp');
+    Assign(FileHlp,'..\demohelp.hlp');
 {$I-}
     Reset(FileHlp,1); {$I+}
     IF IOResult<>0 Then
     Begin
-        Writeln('I can''t open the given file');
+        Writeln('could not open ../demohelp.hlp');
         Halt(1);
     End;
 
@@ -432,12 +432,12 @@ Begin
     Clrscr;
     OpenFile;
     HelpWindow(2,1,70,20);
-    Result:=FindTopic(2);
+    Result:=FindTopic(0);
     IF Result <> 0 Then
     Begin
-        Writeln('I cant find the topic');
+    {Writeln('I cant find the topic');
         CloseFile;
-        Halt(0);
+        Halt(0);}
     End;
     ShowHelpData;
     CloseFile;

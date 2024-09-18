@@ -15,12 +15,12 @@ Var
 
 Procedure OpenFile;
 Begin
-    Assign(FileHlp,'C:\tp7\MyHelp\George.hlp');
+    Assign(FileHlp,'..\demohelp.hlp');
 {$I-}
     Reset(FileHlp); {$I+}
     IF IOResult<>0 Then
     Begin
-        Writeln('I can''t open the given file');
+        Writeln('could not open ../demohelp.hlp');
         Halt(1);
     End;
 

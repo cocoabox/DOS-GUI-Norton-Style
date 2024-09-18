@@ -14,7 +14,7 @@ UNIT GENERALObj;
 INTERFACE
 Uses Crt,Dos,VarConstObj,MouseObj;
 
-{$L C:\bp7\obj\cpu.obj}
+{$L ..\obj\cpu.obj}
 
 Type
      BasicColors = Record

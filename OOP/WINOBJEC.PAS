@@ -434,7 +434,8 @@ Begin
       IF ColorCard Then
          Params:=StandardChars+Shadow
       Else
-         Params:=StandardChars+Move+CloseIcon;
+         Params:=StandardChars+CloseIcon;
+         { Params:=StandardChars+Move+CloseIcon; }
 
       InTitle:='** ERROR **';
 
@@ -553,7 +554,7 @@ Var
 
 Procedure NodeContinue;
 Begin
-    IF Win^.MenusSeq=Win^.HeadMenusSeq Then
+    If Win^.MenusSeq=Win^.HeadMenusSeq Then
     Begin
        TButton^.BDefault:=BfDefault;
        Win^.CurMenusSeq:=Win^.MenusSeq;

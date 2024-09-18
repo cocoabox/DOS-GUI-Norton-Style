@@ -6,8 +6,8 @@ Uses SavRstObj,WindowsObj,VarConstObj,GeneralObj,MouseObj,DemoFx,PullDnMenus,
               ErrorDlg,WinApplObj,WinObjA,WinObjB,WinObjC,HelpObj,Dos,Crt;
 
 
-{$L C:\bp7\Obj\Asm_Ints.Obj}
-{$I C:\bp7\include\Elingr.Inc}
+{$L ..\Obj\Asm_Ints.Obj}
+{$I ..\fonts\norton.inc}
 
 Const
     ExitFromProgram  :Boolean = False;  {’ž¤ ‰˜¤¦¬£œ True ¦«˜¤ Ÿœ¢¦¬£œ œ¥¦›¦ ˜§¦ «¦ §¨¦š¨˜££˜}
@@ -511,17 +511,17 @@ Begin
     IF DosFonts Then
     Begin
        ReadFontsByManual(SaveDosFont);
-       UsePartFontsByManual(0,16,Elingr);
-       UsePartFontsByManual(18,12,Elingr);
-       UsePartFontsByManual(180,10,Elingr);
-       UsePartFontsByManual(198,3,Elingr);
-       UsePartFontsByManual(210,7,Elingr);
-       UsePartFontsByManual(234,21,Elingr);
+       UsePartFontsByManual(0,16,MyFont); { MyFont defined in norton.inc }
+       UsePartFontsByManual(18,12,MyFont);
+       UsePartFontsByManual(180,10,MyFont);
+       UsePartFontsByManual(198,3,MyFont);
+       UsePartFontsByManual(210,7,MyFont);
+       UsePartFontsByManual(234,21,MyFont);
     End
     Else
     Begin
        ReadFontsByManual(SaveDosFont);
-       UseFontsByManual(Elingr);
+       UseFontsByManual(MyFont);
     End;
 
     VgaExist:=True;

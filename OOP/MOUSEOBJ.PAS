@@ -131,7 +131,7 @@ var
 
 IMPLEMENTATION
 
-{$L C:\bp7\obj\MousePA}
+{$L ..\obj\MousePA}
 {$F+}                                                  { FAR function }
 Procedure AssmHand; external ;              { Assembler event handler }
 {$F-}                            { FAR functions no longer accessible }

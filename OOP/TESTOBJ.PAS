@@ -22,13 +22,13 @@ Var
 Begin
       WinTextColor:=15;
       WinTextBackGround:=3;
-      OpenWindow(12,2,66,23,'‘®œ« ¡á',WinChars+OpenFx+CloseFx+CloseIcon+WinCharsWindow+Movement+Shadow);
+      OpenWindow(12,2,66,23,'window',WinChars+OpenFx+CloseFx+CloseIcon+WinCharsWindow+Movement+Shadow);
       Win^.CloseCommand:=0;
       If HeapErrorCode = 1 Then
          Exit;
 
-      AssignXY((GetWindowMaxX-Length('  ~„¤«á¥œ  ')) div 2,GetWindowMaxY-1,0,0);
-      InitButton('  ~„¤«á¥œ  ',CmClose,PushButton,BfDefault);
+      AssignXY((GetWindowMaxX-Length('button')) div 2,GetWindowMaxY-1,0,0);
+      InitButton('button',CmClose,PushButton,BfDefault);
       ButtonHelp('',0);
 
 
@@ -37,7 +37,7 @@ Begin
 
       AssignXY(20,2,50,2);
       InitInputLine(Nocm,30,'');
-      InputLineLabel(2,2,'~‰˜«žš¦¨å˜        :');
+      InputLineLabel(2,2,'label');
 
 
 
