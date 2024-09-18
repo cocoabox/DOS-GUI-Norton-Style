@@ -1,10 +1,3 @@
-{***********************************************************************}
-{UNIT WinApplObj                                                        }
-{FileName    :WinApplO.Pas                                              }
-{èú®†úÆú† ®¶¨´†§ú™ ß¶¨ ò≠¶®¶¨§ ú£≠ò§†©û ò§´†°ú†£ú§‡§ £ú©ò ©ú ú§ò ûõû    }
-{ò§¶†ö£ú§¶ ßò®òü¨®¶.                                                    }
-{***********************************************************************}
-
 UNIT WINAPPLOBJ;
 
 INTERFACE
@@ -264,16 +257,24 @@ Begin
      Begin
          Case X of
            DoubleLines:Begin
-                        UpHor:=WCUpHorLine;DnHor:=WCDnHorLine;
-                        LfVer:=WCLfVerLine;RgVer:=WCRgVerLine;
-                        DnRgCorner:=WCDnRgCorner;DnLfCorner:=WCDnLfCorner;
-                        UpRgCorner:=WCUpRgCorner;UpLfCorner:=WCUpLfCorner;
+                        UpHor:=WCUpHorLine;
+                        DnHor:=WCDnHorLine;
+                        LfVer:=WCLfVerLine;
+                        RgVer:=WCRgVerLine;
+                        DnRgCorner:=WCDnRgCorner;
+                        DnLfCorner:=WCDnLfCorner;
+                        UpRgCorner:=WCUpRgCorner;
+                        UpLfCorner:=WCUpLfCorner;
                        End;
            SingleLines:Begin
-                        UpHor:=WCUpHorLineS;DnHor:=WCDnHorLineS;
-                        LfVer:=WCLfVerLineS;RgVer:=WCRgVerLineS;
-                        DnRgCorner:=WCDnRgCornerS;DnLfCorner:=WCDnLfCornerS;
-                        UpRgCorner:=WCUpRgCornerS;UpLfCorner:=WCUpLfCornerS;
+                        UpHor:=WCUpHorLineS;
+                        DnHor:=WCDnHorLineS;
+                        LfVer:=WCLfVerLineS;
+                        RgVer:=WCRgVerLineS;
+                        DnRgCorner:=WCDnRgCornerS;
+                        DnLfCorner:=WCDnLfCornerS;
+                        UpRgCorner:=WCUpRgCornerS;
+                        UpLfCorner:=WCUpLfCornerS;
                        End;
          End;
 
@@ -281,10 +282,14 @@ Begin
      End
      Else
      Begin
-        UpHor:=SCUpHorLine;DnHor:=SCDnHorLine;
-        LfVer:=SCLfVerLine;RgVer:=SCRgVerLine;
-        DnRgCorner:=SCDnRgCorner;DnLfCorner:=SCDnLfCorner;
-        UpRgCorner:=SCUpRgCorner;UpLfCorner:=SCUpLfCorner;
+        UpHor:=SCUpHorLine;
+        DnHor:=SCDnHorLine;
+        LfVer:=SCLfVerLine;
+        RgVer:=SCRgVerLine;
+        DnRgCorner:=SCDnRgCorner;
+        DnLfCorner:=SCDnLfCorner;
+        UpRgCorner:=SCUpRgCorner;
+        UpLfCorner:=SCUpLfCorner;
      End;
 
      HiddenMouseCursor;

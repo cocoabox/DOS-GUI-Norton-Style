@@ -1,2 +1,0 @@
-loadfont greek.syb
-grkeyb

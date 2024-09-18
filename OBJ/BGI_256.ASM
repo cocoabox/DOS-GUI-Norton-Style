@@ -25,6 +25,8 @@ CC_MODE_CTRL   = 17h              ;Number of mode control register
 
 PIXX           = 80               ;Horizontal resolution
 
+VERT_RESCAN    = 3DAh
+
 ;== Data segment ======================================================
 
 DATA   segment word public

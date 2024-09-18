@@ -7,19 +7,18 @@ Uses SavRstObj,WindowsObj,VarConstObj,GeneralObj,MouseObj,DemoFx,PullDnMenus,
 
 
 {$L ..\Obj\Asm_Ints.Obj}
-{$I ..\fonts\norton.inc}
+{$I ..\fonts\elingr.inc}
 
 Const
-    ExitFromProgram  :Boolean = False;  {’¤ ‰˜¤¦¬£œ True ¦«˜¤ Ÿœ¢¦¬£œ œ¥¦›¦ ˜§¦ «¦ §¨¦š¨˜££˜}
-    SetBackGround    :Boolean = True;
-    DosFonts         :Boolean = False;
+    ExitFromProgram  :Boolean = False;
+    SetBackGround    :Boolean = False;
+    DosFonts         :Boolean = True;
     VgaFonts         :Boolean = True;
     ExclusiveVGA     :Boolean = False;
 
 Type
-
-
    Application = Object (TxtBox)
+   public
         Constructor Init;
         Procedure   Run;
         Destructor  Done;
@@ -295,16 +294,16 @@ Begin
     Win^.CloseCommand:=ReservedCmHelpCancel;
 
     AssignXY(2,16,0,0);
-    InitButton('  ~‰˜«˜¢¦š¦ª  ',ReservedCmHelpIndex,PushButton,BfDefault);
-    ButtonHelp('‰˜«˜¢¦š¦ª ¦¢ª «ª ™¦Ÿœ ˜ª.',NoHelp);
+    InitButton('  ~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ',ReservedCmHelpIndex,PushButton,BfDefault);
+    ButtonHelp('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.',NoHelp);
 
     AssignXY(20,16,0,0);
-    InitButton(' ~¨¦š¦¬£œ¤¦ ',ReservedCmHelpPrev,PushButton,BfNormal);
-    ButtonHelp('š˜ ¤¦¬£œ ©«¦ §¨¦š¦¬£œ¤¦ topic.',NoHelp);
+    InitButton(' ~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ',ReservedCmHelpPrev,PushButton,BfNormal);
+    ButtonHelp('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ topic.',NoHelp);
 
     AssignXY(38,16,0,0);
-    InitButton('   ~€¡ç¨à©   ',ReservedCmHelpCancel,PushButton,BfNormal);
-    ButtonHelp('„¥¦›¦ ˜§¦ «¤ ™¦Ÿœ ˜.',NoHelp);
+    InitButton('   ~ï¿½ï¿½ï¿½à©   ',ReservedCmHelpCancel,PushButton,BfNormal);
+    ButtonHelp('ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.',NoHelp);
 
     HelpBorderX2:=(HelpWinX2-HelpWinX1)-2;
 
@@ -395,12 +394,6 @@ Procedure InitNewInt24_Asm;External;
 {$F-}
 
 
-{***************************************************************************}
-{Procedure InitColorCard                                                    }
-{‰˜¤œ  initialize ©« ª œ¥œ ª ¡˜¨«œª ¦Ÿ¦¤ª :EGA,CGA                         }
-{‚ ¤¦¤«˜  ¨¬Ÿ£ ©œ ª ®¨à£˜«à¤.                                               }
-{***************************************************************************}
-
 Procedure InitColorCard;
 Begin
     ColorCard:=True;
@@ -433,11 +426,6 @@ Begin
     WTitleTextBackGround:=3;
 End;
 
-{***************************************************************************}
-{Procedure InitMonoCard                                                     }
-{‰˜¤œ  initialize ©« ª œ¥œ ª ¡˜¨«œª :Hercules,MDA                           }
-{„§ ©ª š ¤¦¤«˜  ¨¬Ÿ£ ©œ ª ®¨à£˜«à¤                                         }
-{***************************************************************************}
 
 Procedure InitMonoCard;
 Begin
@@ -499,19 +487,14 @@ Begin
 
 End;
 
-{**************************************************************************}
-{Procedure InitVgaCard                                                     }
-{‰˜¤œ  initialize ©«¤ VGA                                                 }
-{**************************************************************************}
 Procedure InitVgaCard;
 Begin
 
     SetCharWidth(8); {change character breadth in 8 pixel}
-
     IF DosFonts Then
     Begin
        ReadFontsByManual(SaveDosFont);
-       UsePartFontsByManual(0,16,MyFont); { MyFont defined in norton.inc }
+       UsePartFontsByManual(0,16,MyFont);
        UsePartFontsByManual(18,12,MyFont);
        UsePartFontsByManual(180,10,MyFont);
        UsePartFontsByManual(198,3,MyFont);
@@ -659,6 +642,7 @@ Begin
    MouseYMax:=(BiosRows-1) * 8;
 End;
 
+{**************************************************************************}
 Procedure ContrastNewMode;
 Begin
    IF MemAvail < 7000 Then
@@ -695,7 +679,7 @@ Begin
    IF HeapErrorCode=0 then
    Begin
      SetVideoMode(3);
-     InitVga8x16('C:\tp7\exe\gothic.syb',Ec);
+     InitVga8x16('fonts\elingr.syb',Ec);
      FontHeight:=16;
      VgaMouse:=True;
      ResetVgaMouse;
@@ -718,7 +702,7 @@ Begin
    IF HeapErrorCode=0 then
    Begin
      SetVideoMode($50);
-     InitVga8x16('C:\tp7\exe\gothic.syb',Ec);
+     InitVga8x16('fonts\elingr.syb',Ec);
      FontHeight:=16;
      VgaMouse:=True;
      ResetVgaMouse;
@@ -803,7 +787,7 @@ Begin
    IF HeapErrorCode=0 Then
    Begin
      SetVideoMode($54);
-     InitVga8x16('C:\tp7\exe\gothic.syb',Ec);
+     InitVga8x16('fonts\elingr.syb',Ec);
      VgaMouse:=True;
      FontHeight:=16;
      ResetVgaMouse;
@@ -824,7 +808,7 @@ Begin
    IF HeapErrorCode=0 Then
    Begin
      SetVideoMode($55);
-     InitVga8x8('C:\tp7\exe\norm8x8.syb',Ec);
+     InitVga8x8('fonts\elingr.syb',Ec);
      VgaMouse:=False;
      FontHeight:=11;
      SetMousePosition(1,1);
@@ -845,7 +829,7 @@ Begin
    IF HeapErrorCode=0 Then
    Begin
      SetVideoMode($56);
-     InitVga8x8('C:\tp7\exe\norm8x8.syb',Ec);
+     InitVga8x8('fonts\elingr.syb',Ec);
      VgaMouse:=False;
      FontHeight:=8;
      SetMousePosition(1,1);
@@ -1013,11 +997,6 @@ Begin
 End;
 
 
-{***************************************************************************}
-{Procedure InitErrorMem                                                     }
-{‰˜¤¦¬£œ ¡˜«˜¤¦£ £¤£ª ©«¤ ˜¨® œ«©  à©«œ ¤˜ œ®¦¬£œ ®à¨¦ š ˜ «¦ §˜¨˜Ÿ¬¨¦ }
-{¢˜Ÿà¤.                                                                     }
-{***************************************************************************}
 
 Procedure InitErrorMem;
 Var
@@ -1027,7 +1006,7 @@ Var
    XSize,YSize     :Byte;
 Begin
 
-   {¨à«˜ §¨¦©› ¦¨ ¦¬£œ « ª Far procedures                             }
+   {ï¿½ï¿½à«˜ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Far procedures                             }
 
    ErrorWinFarCallPtr:=@WindowErrorMessage;
    ErrorMoveFarCallPtr:=@MoveWinErrorMessage;
@@ -1117,10 +1096,6 @@ Begin
 End;
 
 
-{**************************************************************************}
-{Procedure CloseVgaCars                                                    }
-{„§˜¤˜­œ¨œ  «¦ ©¬©«£˜ ©«¤ §¨¦š¦¬£œ¤ ¡˜«˜©«˜©                          }
-{**************************************************************************}
 
 Procedure CloseVgaCard;
 Begin
@@ -1165,12 +1140,11 @@ End;
 {initialize all virtual methods.                                          }
 {*************************************************************************}
 
-Constructor Application.Init;
+constructor Application.Init;
 Var
     TView        :View;
     TPullDnMenu  :PullDownObj;
 Begin
-
     WriteTextColor:=7;
     WriteTextBackGround:=0;
 
@@ -1216,7 +1190,6 @@ Begin
 
 
 
-    {„˜¤ Hercules  MDA «¦«œ œ¢˜ œ›à}
 
     IF (Mem[$0040:$0063]=$3B4) or (Mem[$0040:$0049]=7) Then
     Begin
@@ -1226,7 +1199,6 @@ Begin
        InitMonoCard;
     End
     Else
-    {„˜¤ Vga «¦«œ œ¢˜ œ›à}
 
     IF (IsVga=True) And (VgaFonts=True) {And (MicroSoftWindows=False)} Then
     Begin
@@ -1235,7 +1207,6 @@ Begin
     End
     Else
     Begin
-       {€¢¢ àª EGA,CGA œ¢˜ œ›à}
        VgaFonts:=False;
        InitColorCard;
     End;
